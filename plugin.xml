@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<plugin xmlns="http://apache.org/cordova/ns/plugins/1.0"
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        id="com.sudi.plugins.tintstatusbar"
+        version="1.0.0">
+
+  <name>TintStatusBar</name>
+
+  <description>
+    Tint the Android status bar
+  </description>
+
+  <author>Daniel Sudmann</author>
+
+  <license>MIT</license>
+
+  <keywords>Design, Statusbar</keywords>
+
+  <repo>https://github.com/suddani/tint-status-bar-plugin.git</repo>
+
+  <issue>https://github.com/suddani/tint-status-bar-plugin/issues</issue>
+
+  <engines>
+    <engine name="cordova" version=">=3.0.0"/>
+  </engines>
+
+  <js-module src="www/TintStatusBar.js" name="TintStatusBar">
+    <clobbers target="window.plugins.tintstatusbar" />
+  </js-module>
+
+  <!-- android -->
+  <platform name="android">
+
+    <config-file target="res/xml/config.xml" parent="/*">
+      <feature name="TintStatusBarPlugin">
+        <param name="android-package" value="com.sudi.plugins.tintstatusbar.TintStatusBarPlugin" />
+      </feature>
+    </config-file>
+
+    <config-file target="AndroidManifest.xml" parent="/*">
+      <!-- <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/> -->
+    </config-file>
+
+    <source-file src="src/android/com/sudi/plugins/tintstatusbar/TintStatusBarPlugin.java" target-dir="src/com/sudi/plugins/tintstatusbar"/>
+  </platform>
+
+</plugin>
